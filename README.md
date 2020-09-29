@@ -34,7 +34,14 @@ $ conda install -c odlgroup odl=0.7.0
 
 - ```Tensorflow```: Contains the tensorflow version of PsiDONet files
   - ```fundamental_functions```: Contains PsiDONet files
-    - ```test```: 
+    - ```Train_Test_PsiDONet.py```: Contains the training and testing functions of PsiDONet
+    - ```utils_learning.py```: Includes the definition of the PsiDONet unrolled iterations
+    - ```utils_bowtie.py```: Contains functions for filter computation
+    - ```tools.py```: Includes loading and quality evalutation functions
+    - ```auxiliary_functions.py```: Contains some useful side functions
+    - ```tf_wavelets.py```: Contains wavelet transform functions
+    - ```haar_psi.py```: Contains the implementation of HaarPSI (code from [http://www.haarpsi.org/](http://www.haarpsi.org/)) 
+  - ```demo.ipynb```: shows how to train and test PsiDONet
 
 - ```Ellipses_Datasets```: Datasets of ellipse images
   - ```Size_128```: Dataset of 128x128 images
