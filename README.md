@@ -56,3 +56,5 @@ $ conda install -c odlgroup odl=0.7.0
       - ```Sinograms```: Contains 500 complete-angle sinograms
 
 The ground truth images and the sinograms were simulated with Matlab. The sinograms were corrupted by gaussian noise and generated according to a procedure that avoids inverse crime.
+
+###### Thank you for using our code, kindly report any suggestion to the corresponding author.
