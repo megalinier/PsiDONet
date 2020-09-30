@@ -18,7 +18,7 @@ SIAM Journal on Imaging Sciences (SIIMS), 2020.
 ```bash
 $ conda create -n PsiDONet_tf_env python=3.6.9
 ```
-3. Activate the create environment
+3. Activate the environment
 ```bash
 $ source activate PsiDONet_tf_env 
 ```
