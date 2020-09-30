@@ -20,7 +20,7 @@ $ conda create -n PsiDONet_tf_env python=3.6.9
 ```
 3. Activate the environment
 ```bash
-$ source activate PsiDONet_tf_env 
+$ conda activate PsiDONet_tf_env 
 ```
 4. Inside this environment install the following packages.
 ```bash
