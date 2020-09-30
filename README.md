@@ -26,7 +26,7 @@ $ conda activate PsiDONet_tf_env
 ```bash
 $ conda install -c anaconda numpy=1.14.6 
 $ conda install -c conda-forge matplotlib=3.2.1 scikit-image=0.17.2 pywavelets=1.1.1
-$ conda install tensorflow-gpu=1.13.1 cudatoolkit=8.0 
+$ conda install tensorflow-gpu=1.13.1 
 $ conda install -c astra-toolbox astra-toolbox=1.8.3
 $ conda install -c odlgroup odl=0.7.0
 ```
