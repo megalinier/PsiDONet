@@ -285,7 +285,7 @@ def initialise_parameters(filter_size, mu, L, nb_unrolledBlocks, model_unrolling
     alphas_tf = []
     betas_tf = []
 
-    if "exp" in model_unrolling:
+    if "plus" in model_unrolling:
         init_theta= np.log10(mu/L)
     else:
         init_theta= mu/L
