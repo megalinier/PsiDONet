@@ -124,8 +124,8 @@ def LoadData(angles, indices_samples, size_image, level_decomp, type_data, wavel
             im_bp[i,:,:,:] = im_bp_index[...,np.newaxis]
             im_true[i,:,:,:] = im_true_index[...,np.newaxis]
         if type_data=='wave' or type_data=='both': 
-            wave_bp_index, _   = pywt.coeffs_to_array(pywt.wavedec2(im_bp_index, wavelet_type, level=level_decomp))
-            wave_true_index, _ = pywt.coeffs_to_array(pywt.wavedec2(im_true_index, wavelet_type, level=level_decomp))
+            wave_bp_index, _   = pywt.coeffs_to_array(pywt.wavedec2(im_bp_index, wavelet_type, level=level_decomp, mode = 'periodization'))
+            wave_true_index, _ = pywt.coeffs_to_array(pywt.wavedec2(im_true_index, wavelet_type, level=level_decomp, mode = 'periodization'))
 
             wave_bp[i,:,:,:] = wave_bp_index[...,np.newaxis]
             wave_true[i,:, :,:] = wave_true_index[...,np.newaxis]

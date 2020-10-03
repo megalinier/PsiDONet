@@ -367,6 +367,6 @@ def test(train_conditions, folders, model_unrolling ='PSIDONetO', minibatch_size
                         _, coeff_slices = pywt.coeffs_to_array(pywt.wavedecn(np.zeros((size_image,size_image)), wavelet_type, \
                                                             mode='periodization', level=level_decomp))
                         coeffs_from_arr = pywt.array_to_coeffs(wave_pred[j,:,:,0],coeff_slices)
-                        im_pred = pywt.waverecn(coeffs_from_arr, wavelet=wavelet_type)
+                        im_pred = pywt.waverecn(coeffs_from_arr, wavelet=wavelet_type, mode = 'periodization')
                         
                         sio.savemat(os.path.join(path_save,folder_to_test+'set_restoredImages',names[j]),{'image':im_pred})                   

@@ -107,7 +107,7 @@ def from_pixel_to_bowtie(size_image, level_pix, position_pix, angles, level_deco
     
     # Convert it into the spatial domain
     coeffs_from_arr = pywt.array_to_coeffs(wave_1pix, coeff_slices)
-    im_1pix = pywt.waverecn(coeffs_from_arr, wavelet='haar')
+    im_1pix = pywt.waverecn(coeffs_from_arr, wavelet='haar', mode = 'periodization')
     
     # Compute the back projection
     radon_im = radon(im_1pix, theta=angles, circle=False)
