@@ -18,16 +18,19 @@ SIAM Journal on Imaging Sciences (SIIMS), 2020.
 ```bash
 $ conda create -n PsiDONet_tf_env python=3.6.9
 ```
-3. Inside this environment install the following packages.
+3. Activate the environment
 ```bash
 $ conda activate PsiDONet_tf_env 
+```
+4. Inside this environment install the following packages.
+```bash
 $ conda install -c anaconda numpy=1.14.6 
 $ conda install -c conda-forge matplotlib=3.2.1 scikit-image=0.17.2 pywavelets=1.1.1
-$ conda install tensorflow-gpu=1.13.1 cudatoolkit=8.0 
+$ conda install tensorflow-gpu=1.13.1 
 $ conda install -c astra-toolbox astra-toolbox=1.8.3
 $ conda install -c odlgroup odl=0.7.0
 ```
-4. Use the demo notebook to train and test PsiDONet models.
+5. Use the demo notebook to train and test PsiDONet models.
 
 
 ### File organisation:
