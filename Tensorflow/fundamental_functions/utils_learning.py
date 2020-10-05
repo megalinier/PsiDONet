@@ -250,7 +250,7 @@ def Get_Rescal_Factor(size_image, angles, method, level_decomp, np_prec ='', tf_
         tf.compat.v1.reset_default_graph()
         wavelet_filter = tfw.create_wavelet_transform_filters(wavelet_type, tf_prec, np_prec) 
         # Creation of the filters
-        dict_filters = creation_dict_bowties(size_image, level_decomp, angles)
+        dict_filters = creation_dict_bowties(size_image, level_decomp, angles, wavelet_type)
         dict_filters_tf = initialize_filters_F(dict_filters, 0, False, np_prec, tf_prec)   
     
         b_k_plc = tf.compat.v1.placeholder(tf_prec, shape=(1, size_image, size_image, 1))
@@ -325,7 +325,7 @@ def Get_Rescal_Factor(size_image, angles, method, level_decomp, np_prec ='', tf_
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
 def PSIDONetF(wave_bp, size_image, level_decomp, angles, dictionaries, thetas, \
-            alphas, betas, filter_size, nb_unrolledBlocks, nb_repetBlock,  \
+            alphas, betas, filter_size, nb_unrolledBlocks, nb_repetBlock, wavelet_type, \
             wavelet_filter, nbDetectorPixels, rescal, tf_prec, np_prec, precision_float):
     """
     Builds the graph of PsiDONet-F
@@ -344,6 +344,7 @@ def PSIDONetF(wave_bp, size_image, level_decomp, angles, dictionaries, thetas, \
         filter_size (int)          : size of every trainable filter  
         nb_unrolledBlocks (int)    : number of different set of trainable parameters 
         nb_repetBlock (int)        : number of times each set of trainable parameters is used   
+        wavelet_type (string)      : type of wavelets
         wavelet_filter(tfw.Wavelet): wavelet coefficients for the computation of the wavelet transform        
         nbDetectorPixels (int)     : sinogram width 
         rescal (int)               : rescaling factor so that the normal operator of the radon transform has unit norm
@@ -356,7 +357,7 @@ def PSIDONetF(wave_bp, size_image, level_decomp, angles, dictionaries, thetas, \
         (tensor)                  : predicted wavelet object, shape b*h*w*1
     """   
     # Creation of the bowties to initialize the fixed filters
-    dict_filters = creation_dict_bowties(size_image, level_decomp, angles)
+    dict_filters = creation_dict_bowties(size_image, level_decomp, angles, wavelet_type)
     # Separation between the fixed operator (border of the filters) and the learnt operator (center of the filters)
     dict_hole, _ = separate_dict_hole_NN(dict_filters, level_decomp, filter_size)
     dict_hole = initialize_filters_F(dict_hole, 0, False, np_prec, tf_prec) 
@@ -380,7 +381,7 @@ def PSIDONetF(wave_bp, size_image, level_decomp, angles, dictionaries, thetas, \
     return W_i
 
 def PSIDONetFplus(wave_bp, size_image, level_decomp, angles, dictionaries, thetas, \
-            alphas, betas, filter_size, nb_unrolledBlocks, nb_repetBlock,  \
+            alphas, betas, filter_size, nb_unrolledBlocks, nb_repetBlock, wavelet_type,  \
             wavelet_filter, nbDetectorPixels, rescal, tf_prec, np_prec, precision_float):
     """
     Builds the graph of PsiDONet-F+
@@ -399,6 +400,7 @@ def PSIDONetFplus(wave_bp, size_image, level_decomp, angles, dictionaries, theta
         filter_size (int)          : size of every trainable filter  
         nb_unrolledBlocks (int)    : number of different set of trainable parameters 
         nb_repetBlock (int)        : number of times each set of trainable parameters is used   
+        wavelet_type (string)      : type of wavelets
         wavelet_filter(tfw.Wavelet): wavelet coefficients for the computation of the wavelet transform        
         nbDetectorPixels (int)     : sinogram width 
         rescal (int)               : rescaling factor so that the normal operator of the radon transform has unit norm
@@ -411,7 +413,7 @@ def PSIDONetFplus(wave_bp, size_image, level_decomp, angles, dictionaries, theta
         (tensor)                  : predicted wavelet object, shape b*h*w*1
     """
     # Creation of the bowties to initialize the fixed filters
-    dict_filters = creation_dict_bowties(size_image, level_decomp, angles)
+    dict_filters = creation_dict_bowties(size_image, level_decomp, angles, wavelet_type)
     # Separation between the fixed operator (border of the filters) and the learnt operator (center of the filters)
     dict_hole, _ = separate_dict_hole_NN(dict_filters, level_decomp, filter_size)
     dict_hole = initialize_filters_F(dict_hole, 0, False, np_prec, tf_prec) 
@@ -434,7 +436,7 @@ def PSIDONetFplus(wave_bp, size_image, level_decomp, angles, dictionaries, theta
     return W_i
 
 def PSIDONetO(wave_bp, size_image, level_decomp, angles, dictionaries, thetas, \
-            alphas, betas, filter_size, nb_unrolledBlocks, nb_repetBlock,  \
+            alphas, betas, filter_size, nb_unrolledBlocks, nb_repetBlock, wavelet_type, \
             wavelet_filter, nbDetectorPixels, rescal, tf_prec, np_prec, precision_float):
     """
     Builds the graph of PsiDONet-O
@@ -453,6 +455,7 @@ def PSIDONetO(wave_bp, size_image, level_decomp, angles, dictionaries, thetas, \
         filter_size (int)          : size of every trainable filter  
         nb_unrolledBlocks (int)    : number of different set of trainable parameters 
         nb_repetBlock (int)        : number of times each set of trainable parameters is used   
+        wavelet_type (string)      : type of wavelets
         wavelet_filter(tfw.Wavelet): wavelet coefficients for the computation of the wavelet transform        
         nbDetectorPixels (int)     : sinogram width 
         rescal (int)               : rescaling factor so that the normal operator of the radon transform has unit norm
@@ -482,7 +485,7 @@ def PSIDONetO(wave_bp, size_image, level_decomp, angles, dictionaries, thetas, \
     return  W_i
 
 def PSIDONetOplus(wave_bp, size_image, level_decomp, angles, dictionaries, thetas, \
-            alphas, betas, filter_size, nb_unrolledBlocks, nb_repetBlock,  \
+            alphas, betas, filter_size, nb_unrolledBlocks, nb_repetBlock, wavelet_type, \
             wavelet_filter, nbDetectorPixels, rescal, tf_prec, np_prec, precision_float):
     """
     Builds the graph of PsiDONet-O+
@@ -501,6 +504,7 @@ def PSIDONetOplus(wave_bp, size_image, level_decomp, angles, dictionaries, theta
         filter_size (int)          : size of every trainable filter  
         nb_unrolledBlocks (int)    : number of different set of trainable parameters 
         nb_repetBlock (int)        : number of times each set of trainable parameters is used   
+        wavelet_type (string)      : type of wavelets
         wavelet_filter(tfw.Wavelet): wavelet coefficients for the computation of the wavelet transform        
         nbDetectorPixels (int)     : sinogram width 
         rescal (int)               : rescaling factor so that the normal operator of the radon transform has unit norm

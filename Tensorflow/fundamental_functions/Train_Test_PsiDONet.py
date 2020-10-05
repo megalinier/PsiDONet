@@ -132,7 +132,7 @@ def train(train_conditions, folders, model_unrolling ='PSIDONetO',
             dictionaries_tf, thetas_tf, alphas_tf, betas_tf = initialise_parameters(filter_size, mu, L, \
                                                                                     nb_unrolledBlocks, model_unrolling,\
                                                                                     size_image, angles, level_decomp, \
-                                                                                    tf_prec, np_prec)
+                                                                                    tf_prec, np_prec, wavelet_type)
         else: #restoration of existing model
             dictionaries_tf, thetas_tf, alphas_tf, betas_tf = restore_parameters(path_to_restore, nb_unrolledBlocks,\
                                                                                  tf_prec, np_prec, 1)
@@ -140,7 +140,7 @@ def train(train_conditions, folders, model_unrolling ='PSIDONetO',
         # Forward propagation: Build the forward propagation in the tensorflow graph
         wave_pred_plc  = getattr(utils_learning,model_unrolling)\
                         (wave_bp_plc, size_image, level_decomp, angles, dictionaries_tf, thetas_tf, \
-                        alphas_tf, betas_tf, filter_size, nb_unrolledBlocks, nb_repetBlock,  \
+                        alphas_tf, betas_tf, filter_size, nb_unrolledBlocks, nb_repetBlock, wavelet_type, \
                         wavelet_filter, nbDetectorPixels, rescal, tf_prec, np_prec, precision_float)
 
         # Cost function: Add cost function to tensorflow graph
@@ -330,7 +330,7 @@ def test(train_conditions, folders, model_unrolling ='PSIDONetO', minibatch_size
         # Forward propagation: Build the forward propagation in the tensorflow graph
         wave_pred_plc  = getattr(utils_learning,model_unrolling)\
                         (wave_bp_plc, size_image, level_decomp, angles, dictionaries_tf, thetas_tf, \
-                        alphas_tf, betas_tf, filter_size, nb_unrolledBlocks, nb_repetBlock,  \
+                        alphas_tf, betas_tf, filter_size, nb_unrolledBlocks, nb_repetBlock, wavelet_type, \
                         wavelet_filter, nbDetectorPixels, rescal, tf_prec, np_prec, precision_float)          
                         
         # Initialize all the variables globally
