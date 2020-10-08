@@ -349,12 +349,12 @@ def test(train_conditions, folders, model_unrolling ='PSIDONetO', minibatch_size
                 for num_minibatch in range(nb_minibatches):
                     ind_minibatch =  (np.linspace(num_minibatch*minibatch_size,
                                                         (num_minibatch+1)*minibatch_size-1,minibatch_size)).astype(int)   
+                    if ind_minibatch[-1]>size_test:
+                        break   
+
                     names, wave_bp, wave_true= LoadData(angles, ind_minibatch, size_image, \
                                                         level_decomp, 'wave', wavelet_type,\
                                                         rescal_scikit, path_test, np_prec)
-                    
-                    if len(names)<minibatch_size:
-                        break
 
                     # Compute predictions in the wavelet domain
                     wave_pred = sess.run(wave_pred_plc,\
