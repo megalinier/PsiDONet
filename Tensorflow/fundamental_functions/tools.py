@@ -206,10 +206,10 @@ def compute_quality_results(path_true, path_restored, precision_float):
   
     #Write mean relative error in file
     file = open(path_restored + '/mean_relative_error_' + str(len(file_names)) + 'ex.txt','w')
-    file.write('Relative error (mean over test set): ' + str(relative_err_mean) +'\n')
-    file.write('MSE (mean over test set): ' + str(MSE_mean) +'\n')
-    file.write('SSIM (mean over test set): ' + str(SSIM_mean) +'\n')
-    file.write('PSNR  (mean over test set): ' + str(PSNR_mean) +'\n')
-    file.write('HaarPSI (mean over test set): ' + str(HaarPSI_mean))    
+    file.write('Relative error (mean over set): ' + str(relative_err_mean) +'\n')
+    file.write('MSE (mean over set): ' + str(MSE_mean) +'\n')
+    file.write('SSIM (mean over set): ' + str(SSIM_mean) +'\n')
+    file.write('PSNR  (mean over set): ' + str(PSNR_mean) +'\n')
+    file.write('HaarPSI (mean over set): ' + str(HaarPSI_mean))    
     file.close()       
     return relative_err_mean, MSE_mean, SSIM_mean, PSNR_mean, HaarPSI_mean
