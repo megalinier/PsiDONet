@@ -67,9 +67,6 @@ def train(train_conditions, folders, model_unrolling ='PSIDONetO',
                                         path_to_restore is set to ''.
             start_from_epoch (int)    : [optional] if a model is restored, indicates at which epoch its 
                                         training was left. 0 otherwise.
-        Returns
-        -----------        
-           (float)                    : name of the folder where to save the results 
         """
         print('=================== Training model ===================')
         
@@ -286,9 +283,6 @@ def test(train_conditions, folders, model_unrolling ='PSIDONetO', minibatch_size
                                         32 for single-precision, 64 for double-precision)
             dataset (string)          : dataset of interest 
             path_to_restore (string)  : path to model to be tested
-        Returns
-        -----------        
-           (float)                    : name of the folder where to save the results 
         """
         print('=================== Testing model ===================')
         
