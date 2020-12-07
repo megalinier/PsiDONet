@@ -73,7 +73,7 @@ def create_path_save_name(train_conditions, optionalText, model_unrolling ='PSID
         dataset (string)          : dataset of interest 
     Returns
     -----------        
-       (float)                    : name of the folder where to save the results 
+       (string)                   : name of the folder where to save the results 
     """
     
     return 'Angl_' + str(train_conditions[0]) + '_' + str(180-train_conditions[0])\
