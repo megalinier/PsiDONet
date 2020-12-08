@@ -32,6 +32,31 @@ $ conda install -c odlgroup odl=0.7.0
 ```
 5. Use the demo notebook to train and test PsiDONet models.
 
+### Installation of the PyTorch version
+1. Install anaconda.
+2. Create an environment with python version 3.6.9.
+```bash
+$ conda create -n PsiDONet_torch_env python=3.6.9
+```
+3. Activate the environment
+```bash
+$ conda activate PsiDONet_torch_env 
+```
+4. Inside this environment install the following packages.
+```bash
+$ conda install -c anaconda numpy=1.14.6 
+$ conda install -c conda-forge matplotlib=3.2.1 scikit-image=0.17.2 pywavelets=1.1.1
+$ conda install pytorch=1.0.0 torchvision=0.2.1 cuda80 -c pytorch
+$ conda install -c astra-toolbox astra-toolbox=1.8.3
+$ conda install -c odlgroup odl=0.7.0
+```
+5. Add the pytorch wavelet package with pip.
+```bash
+$ git clone https://github.com/fbcotter/pytorch_wavelets
+$ cd pytorch_wavelets
+$ pip install .
+```
+6. Use the demo notebook to train and test PsiDONet models.
 
 ### File organisation:
 
