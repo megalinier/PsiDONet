@@ -230,9 +230,11 @@ class PsiDONet_class(nn.Module):
                     os.makedirs(path)
                     
         elif self.mode=='test':
-            folder = os.path.join(self.path_save,'Testset_restoredImages')
-            if not os.path.exists(folder):
-                os.makedirs(folder)
+            subfolders = ['testset_restoredImages','valset_restoredImages']
+            paths         = [os.path.join(self.path_save, sub) for sub in subfolders ]
+            for path in paths:
+                if not os.path.exists(path):
+                    os.makedirs(path)
     
     def PrintStatistics(self, val, epoch, i, loss, lr):
         """
