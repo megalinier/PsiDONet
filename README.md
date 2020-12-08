@@ -32,7 +32,7 @@ $ conda install -c odlgroup odl=0.7.0
 ```
 5. Use the demo notebook to train and test PsiDONet models.
 
-### Installation of the PyTorch environment
+### (alternative) Installation of the PyTorch environment
 1. Install anaconda.
 2. Create an environment with python version 3.6.9.
 ```bash
