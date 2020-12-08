@@ -23,7 +23,7 @@ import scipy.io as sio
 from skimage.measure import compare_ssim
 import os
 from sklearn.metrics import mean_squared_error
-from haar_psi import haar_psi_numpy
+from fundamental_functions.haar_psi import haar_psi_numpy
 
 def compute_angles(alpha, step):
     """
