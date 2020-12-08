@@ -425,7 +425,7 @@ class PsiDONet_class(nn.Module):
         self.CreateFolders()
         
         for folder_to_test in ['test','val']:
-            print('Saving restaured images in %s ...'%(os.path.join(self.path_save, folder_to_test + '_restoredImages')),flush=True)
+            print('Saving restaured images in %s ...'%(os.path.join(self.path_save, folder_to_test + 'set_restoredImages')),flush=True)
             # Loads Data with images and wavelets
             self.LoadData(return_wavelet= True)
                 
@@ -447,5 +447,5 @@ class PsiDONet_class(nn.Module):
                     for j in range(len(names)):
                         im_predj = im_pred.data[j].squeeze(0).squeeze(1).cpu().numpy().astype('float'+str(self.precision_float))
                         im_predj[im_predj<0] = 0
-                        sio.savemat(os.path.join(self.path_save, folder_to_test + '_restoredImages',names[j]+'.mat'),\
+                        sio.savemat(os.path.join(self.path_save, folder_to_test + 'set_restoredImages',names[j]+'.mat'),\
                                     {'image':im_predj})                   
