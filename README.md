@@ -12,7 +12,7 @@
   > T. A. Bubba, M. Galinier, M. Lassas, M. Prato, L. Ratti, and S. Siltanen.  '**Deep neural networks for inverse problems with pseudodifferential operators:  an ap-plication to limited-angle tomography**'. To appear in 
 SIAM Journal on Imaging Sciences (SIIMS), 2020.
 
-### Installation (Tensorflow environment)
+### Installation of the Tensorflow environment
 1. Install anaconda.
 2. Create an environment with python version 3.6.9.
 ```bash
@@ -32,7 +32,7 @@ $ conda install -c odlgroup odl=0.7.0
 ```
 5. Use the demo notebook to train and test PsiDONet models.
 
-### Installation (PyTorch environment)
+### Installation of the PyTorch environment
 1. Install anaconda.
 2. Create an environment with python version 3.6.9.
 ```bash
