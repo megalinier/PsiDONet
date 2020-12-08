@@ -54,7 +54,7 @@ $ conda install -c odlgroup odl=0.7.0
     - ```tools.py```: Includes loading and quality evalutation functions
     - ```auxiliary_functions.py```: Contains some useful side functions
     - ```haar_psi.py```: Contains the implementation of HaarPSI 
-  - ```PyTorch_ssim```: forward and backward functions to use SSIM as the training loss, (code from [https://github.com/Po-Hsun-Su/pytorch-ssim]https://github.com/Po-Hsun-Su/pytorch-ssim)) 
+  - ```PyTorch_ssim```: forward and backward functions to use SSIM as the training loss, (code from [https://github.com/Po-Hsun-Su/pytorch-ssim](https://github.com/Po-Hsun-Su/pytorch-ssim)) 
   - ```demo.ipynb```: shows how to train and test PsiDONet with the PyTorch implementation
 
 - ```Ellipses_Datasets```: Datasets of ellipse images
