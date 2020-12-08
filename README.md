@@ -12,7 +12,7 @@
   > T. A. Bubba, M. Galinier, M. Lassas, M. Prato, L. Ratti, and S. Siltanen.  '**Deep neural networks for inverse problems with pseudodifferential operators:  an ap-plication to limited-angle tomography**'. To appear in 
 SIAM Journal on Imaging Sciences (SIIMS), 2020.
 
-### Installation
+### Installation of the Tensorflow version
 1. Install anaconda.
 2. Create an environment with python version 3.6.9.
 ```bash
