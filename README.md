@@ -46,6 +46,16 @@ $ conda install -c odlgroup odl=0.7.0
     - ```haar_psi.py```: Contains the implementation of HaarPSI (code from [http://www.haarpsi.org/](http://www.haarpsi.org/)) 
   - ```demo.ipynb```: shows how to train and test PsiDONet
 
+- ```PyTorch```: Contains the PyTorch version of PsiDONet files (only PsiDONetO and PsiDONetO+ are implemented)
+  - ```fundamental_functions```: Contains PsiDONet files
+    - ```Train_Test_PsiDONet.py```: Contains the training and testing functions of PsiDONet
+    - ```model.py```: Includes the definition of the layers in PsiDONet
+    - ```modules.py```: Contains useful functions employed in PsiDONet
+    - ```tools.py```: Includes loading and quality evalutation functions
+    - ```auxiliary_functions.py```: Contains some useful side functions
+    - ```haar_psi.py```: Contains the implementation of HaarPSI 
+  - ```demo.ipynb```: shows how to train and test PsiDONet
+
 - ```Ellipses_Datasets```: Datasets of ellipse images
   - ```Size_128```: Dataset of 128x128 images
     - ```train```: Training set
