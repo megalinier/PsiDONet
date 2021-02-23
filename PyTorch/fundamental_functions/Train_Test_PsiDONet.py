@@ -77,7 +77,7 @@ class PsiDONet_class(nn.Module):
     """
     def __init__(self, train_conditions, folders, mode='train', model_unrolling ='PSIDONetO',
                 learning_rate= 0.001, nb_epochs=3, minibatch_size=15, loss_type='MSE', loss_domain = 'WAV',
-                nb_unrolledBlocks=40, nb_repetBlock=3, filter_size = 64,
+                nb_unrolledBlocks=40, nb_repetBlock=3, filter_size = 65,
                 wavelet_type = 'haar', level_decomp = 3 , precision_float = 32, size_val_limit = 60,
                 dataset = 'Ellipses'):
         """
