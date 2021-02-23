@@ -69,7 +69,11 @@ def train(train_conditions, folders, model_unrolling ='PSIDONetO',
                                         training was left. 0 otherwise.
         """
         print('=================== Training model ===================')
-        
+
+        #Checking values
+        if filter_size%2==0:
+            raise Exception('filter size must be even.')  
+
         # Additional hyperpameter
         missing_angle, step_angle, size_image, mu, L    = train_conditions
         path_main, path_datasets, path_save             = folders

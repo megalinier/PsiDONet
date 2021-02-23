@@ -123,7 +123,7 @@ class PsiDONet_class(nn.Module):
         super(PsiDONet_class, self).__init__()  
         
         #Checking values
-        if filter_size%2==0:
+        if filter_size%2==1:
             raise Exception('filter size must be odd.')  
             
         self.missing_angle, self.step_angle, self.size_image, self.mu, self.L = train_conditions
